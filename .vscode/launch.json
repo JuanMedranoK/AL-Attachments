@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+          "type": "al",
+          "request": "launch",
+          "name": "BC25DEV Docker",
+          "server": "http://bc25dev",
+          "serverInstance": "BC",
+          "authentication": "UserPassword",
+          "startupObjectId": 22,
+          "startupObjectType": "Page",
+          "breakOnError": true,
+          "launchBrowser": true,
+          "enableSqlInformationDebugger": true,
+          "enableLongRunningSqlStatements": true,
+          "tenant": "default"
+        }
+    ]
+}
