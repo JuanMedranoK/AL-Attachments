@@ -23,9 +23,10 @@ codeunit 50130 JK_PurchAttachmentsCopy
 
         Clear(DocumentAttachment);
         DocumentAttachment.SetCurrentKey("Table ID", "No.", "Document Type");
-        DocumentAttachment.SetRange("Table ID", Database::"Purchase Header");
+        DocumentAttachment.SetRange("Table ID", SourceRecord.Number);
         DocumentAttachment.SetRange("No.", SourceRecord.Field(3).Value);
         DocumentAttachment.SetRange("Document Type", DocumentAttachment."Document Type"::Order);
+
         if not DocumentAttachment.FindSet() then
             exit;
         repeat
@@ -45,7 +46,7 @@ codeunit 50130 JK_PurchAttachmentsCopy
                 DocumentAttachment."Document Reference ID".ExportStream(OutStream);
                 TempBlob.CreateInStream(Instream);
                 NewDocumentAttachment."Document Reference ID".ImportStream(Instream, NewDocumentAttachment."File Name");
-                CopyStream(OutStream, Instream);
+                // CopyStream(OutStream, Instream);
                 NewDocumentAttachment.Modify();
             end;
         until DocumentAttachment.Next() = 0;
