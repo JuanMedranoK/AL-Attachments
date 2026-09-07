@@ -1,0 +1,11 @@
+# AL cache
+.alcache/
+
+# Downloaded AL packages
+.alpackages/
+
+# Local debug configuration
+.vscode/launch.json
+
+# RAD metadata
+rad.json
